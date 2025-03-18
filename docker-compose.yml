@@ -1,0 +1,47 @@
+name: nginx-template
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: express
+    image: nginx-template-server:prod
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app:z
+    environment:
+      - NODE_ENV=production
+    restart: always
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: vite
+    image: nginx-template-app:prod
+    depends_on:
+      - server
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - app-build:/app/dist
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: nginx
+    image: nginx-template-nginx:prod
+    ports:
+      - "8080:80"
+    volumes:
+      - app-build:/usr/share/nginx/html:ro
+    depends_on:
+      - server
+      - app
+    restart: always
+
+volumes:
+  app-build:
