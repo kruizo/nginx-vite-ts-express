@@ -1,0 +1,50 @@
+name: nginx-template
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      target: express
+    image: nginx-template-server:dev
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app:z
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    restart: always
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      target: vite
+    image: nginx-template-app:dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app:z
+      - /app/node_modules
+    depends_on:
+      - server
+    environment:
+      - NODE_ENV=development
+    restart: always
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      target: nginx
+    image: nginx-template-nginx:dev
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx-local-dev.conf:/etc/nginx/nginx.conf:ro,Z
+      - ./nginx/default-local-dev.conf:/etc/nginx/conf.d/default.conf:ro,Z
+    depends_on:
+      - server
+      - app
+    restart: always
