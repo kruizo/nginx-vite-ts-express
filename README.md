@@ -1,9 +1,12 @@
 # Nginx Vite TypeScript Express Template
 
-This template provides a starting point for building a web application using Nginx as a reverse proxy, Vite for frontend tooling, TypeScript for type-safe JavaScript, Express for the backend server, and Docker for containerization.
-
-![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white) -![Vite](https://img.shields.io/badge/vite-%2300C7B7.svg?style=for-the-badge&logo=vite&logoColor=white) -![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) -![Express](https://img.shields.io/badge/express-%23000000.svg?style=for-the-badge&logo=express&logoColor=white)
+![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
+![Vite](https://img.shields.io/badge/vite-%2300C7B7.svg?style=for-the-badge&logo=vite&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Express](https://img.shields.io/badge/express-%23000000.svg?style=for-the-badge&logo=express&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-%232496ED.svg?style=for-the-badge&logo=docker&logoColor=white)
+
+This template provides a starting point for building a web application using Nginx as a reverse proxy, Vite for frontend tooling, TypeScript for type-safe JavaScript, Express for the backend server, and Docker for containerization.
 
 ## Features
 
