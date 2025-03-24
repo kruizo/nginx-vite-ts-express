@@ -1,3 +1,5 @@
+**/node_modules
+
 *.lock
 .env
 .env.*
@@ -16,6 +18,7 @@ frontend/logs/
 
 frontend/dist/
 
+
 .DS_Store
 *.swp
 .vscode/
@@ -27,4 +30,6 @@ frontend/dist/
 .gitignore
 
 docker-compose.override.yml
+Dockerfile
+docker-compose.yml
 
